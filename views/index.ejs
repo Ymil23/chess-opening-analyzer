@@ -1,195 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HZSV1MTEDP"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-HZSV1MTEDP');
+  </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chess Opening Analyzer</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+  <link rel="stylesheet" href="/styles.css">
+  <title>♟️Chess Opening Analyzer</title>
 
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 20px;
-    }
-
-    .container {
-      background: white;
-      padding: 40px;
-      border-radius: 20px;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-      max-width: 500px;
-      width: 100%;
-    }
-
-    h1 {
-      color: #333;
-      margin-bottom: 10px;
-      font-size: 2em;
-      text-align: center;
-    }
-
-    .subtitle {
-      color: #666;
-      text-align: center;
-      margin-bottom: 30px;
-      font-size: 0.9em;
-    }
-
-    .chess-icon {
-      font-size: 4em;
-      text-align: center;
-      margin-bottom: 20px;
-    }
-
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-
-    label {
-      color: #555;
-      font-weight: 600;
-    }
-
-    input[type="text"] {
-      padding: 15px;
-      border: 2px solid #e0e0e0;
-      border-radius: 10px;
-      font-size: 1em;
-      transition: border-color 0.3s;
-    }
-
-    input[type="text"]:focus {
-      outline: none;
-      border-color: #667eea;
-    }
-
-    button {
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      color: white;
-      padding: 15px;
-      border: none;
-      border-radius: 10px;
-      font-size: 1.1em;
-      font-weight: 600;
-      cursor: pointer;
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-
-    button:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 10px 20px rgba(102, 126, 234, 0.4);
-    }
-
-    button:active {
-      transform: translateY(0);
-    }
-
-    .error {
-      background: #fee;
-      color: #c33;
-      padding: 15px;
-      border-radius: 10px;
-      margin-bottom: 20px;
-      border-left: 4px solid #c33;
-    }
-
-    .example {
-      text-align: center;
-      color: #999;
-      font-size: 0.85em;
-      margin-top: 10px;
-    }
-  </style>
 </head>
+
 <body>
   <div class="container">
     <div class="chess-icon">♟️</div>
     <h1>Chess Opening Analyzer</h1>
-    
+
     <p class="subtitle">Discover which openings give you the most trouble</p>
 
     <% if (locals.error) { %>
-      <div class="error"><%= error %></div>
-    <% } %>
-
-    <form action="/analyze" method="POST">
-      <div>
-        <label for="username">Chess.com Username:</label>
-        <input 
-          type="text" 
-          id="username" 
-          name="username" 
-          placeholder="Enter your username"
-          value=""
-          required
-        >
-        <p class="example">Example: any-userName23</p>
+      <div class="error">
+        <%= error %>
       </div>
+      <% } %>
 
-      <button type="submit">Analyze My Games 🔍</button>
-    </form>
+        <form action="/analyze" method="POST">
+          <div>
+            <label for="username">Chess.com Username:</label>
+            <input type="text" id="username" name="username" placeholder="Enter your username" value="" required>
+            <p class="example">Example: any-userName23</p>
+          </div>
 
+          <button type="submit">Analyze My Games 🔍</button>
+        </form>
 
-<!-- Below the form, before closing </div> -->
-<div style="text-align: center; margin-top: 30px;">
-  <p style="color: #666; font-size: 0.9em; margin-bottom: 15px;">
-    Try analyzing famous players:
-  </p>
-  <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
-    <form action="/analyze" method="POST" style="display: inline;">
-      <input type="hidden" name="username" value="hikaru">
-      <button type="submit" style="
-        background: white;
-        color: #667eea;
-        border: 2px solid #667eea;
-        padding: 8px 20px;
-        border-radius: 8px;
-        cursor: pointer;
-        font-weight: 600;
-        transition: all 0.2s;
-      ">Hikaru Nakamura</button>
-    </form>
-    
-    <form action="/analyze" method="POST" style="display: inline;">
-      <input type="hidden" name="username" value="magnuscarlsen">
-      <button type="submit" style="
-        background: white;
-        color: #667eea;
-        border: 2px solid #667eea;
-        padding: 8px 20px;
-        border-radius: 8px;
-        cursor: pointer;
-        font-weight: 600;
-        transition: all 0.2s;
-      ">Magnus Carlsen</button>
-    </form>
-    
-    <form action="/analyze" method="POST" style="display: inline;">
-      <input type="hidden" name="username" value="gothamchess">
-      <button type="submit" style="
-        background: white;
-        color: #667eea;
-        border: 2px solid #667eea;
-        padding: 8px 20px;
-        border-radius: 8px;
-        cursor: pointer;
-        font-weight: 600;
-        transition: all 0.2s;
-      ">GothamChess</button>
-    </form>
+        <div class="famous-section">
+          <p class="famous-text">
+            Try analyzing famous players:
+          </p>
+
+          <div class="famous-buttons">
+
+            <form action="/analyze" method="POST">
+              <input type="hidden" name="username" value="hikaru">
+              <button class="player-btn">Hikaru Nakamura</button>
+            </form>
+
+            <form action="/analyze" method="POST">
+              <input type="hidden" name="username" value="magnuscarlsen">
+              <button class="player-btn">Magnus Carlsen</button>
+            </form>
+
+            <form action="/analyze" method="POST">
+              <input type="hidden" name="username" value="gothamchess">
+              <button class="player-btn">GothamChess</button>
+            </form>
+
+          </div>
+
+        </div>
   </div>
-</div>
-  </div>
-  </body>
- </html>
+
+    <!-- Footer -->
+  <footer>
+    <div id="footer">
+      <span style="color: aqua;">Built by Kamil</span>
+
+      <a href="https://www.instagram.com/iconically_kamil/" target="_blank" class="social">
+        <img src="/images/instagram.png" alt="Instagram" class="icon" height="15px" width=" 15px">
+        Instagram
+      </a>
+
+       <a href="https://github.com/Ymil23" target="_blank">
+        <img src="/images/github.png" alt="Instagram" class="icon" height="15px" width=" 15px">
+        GitHub
+      </a>
+    </div>
+  </footer>
+
+
+</body>
+
+</html>

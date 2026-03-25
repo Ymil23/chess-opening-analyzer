@@ -267,7 +267,19 @@ footer {
         font-size: 1em;
         padding: 12px;
     }
-    #footer{
-        max-width: 60%;
+   
+      #footer {
+        width: 65%;
+        max-width: 100%;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 12px;
+        padding: 10px 12px;
+        font-size: 1rem; 
+    }
+     #footer a {
+        font-size: 0.85em;
+        padding: 3px 6px;
+        gap: 3px;
     }
 }

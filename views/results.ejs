@@ -38,26 +38,7 @@
       </div>
     </div>
 
-    <!-- Losses Section -->
-    <div class="section">
-      <h2><span class="icon">🎯</span> Openings you Struggled Against</h2>
-      <p style="color: #666; margin-bottom: 20px;">Study these openings to improve your defensive skills</p>
-
-      <% if (topLosses.length === 0) { %>
-        <div class="no-data">No losses found! You're undefeated! 🏆</div>
-      <% } else { %>
-        <ul class="opening-list">
-          <% topLosses.forEach((opening, index) => { %>
-            <li class="opening-item loss-item">
-              <span class="rank">#<%= index + 1 %></span>
-              <span class="opening-name"><%= opening[0] %></span>
-              <span class="count-badge loss-badge"><%= opening[1] %> losses</span>
-            </li>
-          <% }) %>
-        </ul>
-      <% } %>
-    </div>
-
+    
     <!-- White Wins Section -->
     <div class="section">
       <h2><span class="icon">⚪</span> Your Best Openings as White</h2>
@@ -85,6 +66,7 @@
       <% } %>
     </div>
 
+    
     <!-- Black Wins Section -->
     <div class="section">
       <h2><span class="icon">⚫</span> Your Best Openings as Black</h2>
@@ -109,7 +91,29 @@
         </ul>
       <% } %>
     </div>
+    
+    <!-- Losses Section -->
+    <div class="section">
+      <h2><span class="icon">🎯</span> Openings you Struggled Against</h2>
+      <p style="color: #666; margin-bottom: 20px;">Study these openings to improve your defensive skills</p>
 
+      <% if (topLosses.length === 0) { %>
+        <div class="no-data">No losses found! You're undefeated! 🏆</div>
+      <% } else { %>
+        <ul class="opening-list">
+          <% topLosses.forEach((opening, index) => { %>
+            <li class="opening-item loss-item">
+              <span class="rank">#<%= index + 1 %></span>
+              <span class="opening-name"><%= opening[0] %></span>
+              <span class="count-badge loss-badge"><%= opening[1] %> losses</span>
+            </li>
+          <% }) %>
+        </ul>
+      <% } %>
+    </div>
+
+
+  <!-- Back Button  -->
     <div style="text-align: center;">
       <a href="/" class="back-button">← Analyze Another Player</a>
     </div>

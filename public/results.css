@@ -275,102 +275,6 @@ footer {
     filter: brightness(0) invert(1);
 }
 
-/* MOBILE OPTIMIZATIONS */
-/* @media (max-width: 768px) {
-    body {
-        padding: 20px 10px;
-    }
-
-    .header {
-        padding: 25px 20px;
-    }
-
-    h1 {
-        font-size: 1.8em;
-    }
-
-    // Stats grid 2x2 
-   .stats-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 12px;
-    }
-
-    .stat-card {
-        padding: 18px 10px;
-    }
-
-    .stat-number {
-        font-size: 1.8em;
-    }
-
-    .stat-label {
-        font-size: 0.75em;
-    }
-
-    // Sections 
-    .section {
-        padding: 25px 15px;
-    }
-
-    h2 {
-        font-size: 1.3em;
-    }
-
-    // Opening items stack vertically 
-    .opening-item {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 15px;
-        gap: 10px;
-    }
-
-    .rank {
-        font-size: 1.2em;
-        min-width: auto;
-    }
-
-    .opening-name {
-        margin: 0;
-        font-size: 0.95em;
-        line-height: 1.4;
-        word-break: break-word;
-    }
-
-    .count-badge {
-        align-self: flex-end;
-        padding: 8px 20px;
-        font-size: 0.9em;
-        min-width: auto;
-    }
-
-    // Back button 
-    .back-button {
-        width: 100%;
-        text-align: center;
-    }
-
-    // Footer responsive 
-    #footer {
-        width: 90%;
-        max-width: none;
-        flex-direction: column;
-        gap: 8px;
-        padding: 14px 20px;
-        font-size: 0.85em;
-    }
-
-    #footer a {
-        font-size: 0.9em;
-    }
-
-    .github-icon {
-        height: 16px;
-        width: 16px;
-    } */
-
-
-
-
     /* ===== MOBILE OPTIMIZATIONS ===== */
 @media (max-width: 768px) {
     body {
@@ -448,9 +352,9 @@ footer {
         text-align: center;
     }
 
-    /* FIX #2: Footer stays in ONE LINE, smaller */
+    /* Footer stays in ONE LINE, smaller */
     footer {
-        padding: 15px 10px;
+        padding: 10px;
         margin-top: 30px;
     }
 
